@@ -3,15 +3,19 @@
 var rect = require('./rectangle');
 
 function solveRectangle (length, width) {
-    console.log(`Solving for rectanle with l = ${length} and b = ${width}.`);
-
-    if (length <= 0 || width <= 0) {
-        console.log("Rectangle dimensions must be greater than zero (0).");
-        return;
-    };
-
-    console.log(`The area of the rectangle is ${rect.area(length, width)}.`);
-    console.log(`The perimeter of the rectangle is ${rect.perimeter(length, width)}.`);
+    console.log(`Solving for rectangle with l = ${length} and b = ${width}.`);
+    rect(
+        length,
+        width,
+        (err, rectangle) => {
+            if (err) {
+                console.log("ERROR: ", err.message);
+            } else {
+                console.log("The area of the rectangle is " + rectangle.area);
+                console.log("The perimeter of the rectangle is " + rectangle.perimeter);
+            }
+        }
+        );
 };
 
 solveRectangle(2, 4);
