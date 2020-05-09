@@ -1,3 +1,5 @@
+/* Index.js file for server-side-nodejs Week 1 Homework */
+
 const express = require('express');
 const http = require('http');
 const morgan = require('morgan');
