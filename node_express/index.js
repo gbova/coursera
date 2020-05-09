@@ -3,6 +3,8 @@ const http = require('http');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const dishRouter = require('./routes/dish_router');
+const promoRouter = require('./routes/promotion_router');
+const leaderRouter = require('./routes/leader_router');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -14,6 +16,12 @@ app.use(bodyParser.json());
 
 // dishes endpoint
 app.use('/dishes', dishRouter)
+
+// promotions endpoint
+app.use('/promotions', promoRouter)
+
+// leaders endpoint
+app.use('/leaders', leaderRouter)
 
 app.use((req, res, next) => {
     res.statusCode = 200;
